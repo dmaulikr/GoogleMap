@@ -24,3 +24,27 @@ marker.snippet = @"Current Location";
 marker.map = self.mapContainerView;
 
 ```
+
+# GoogleMap Delegate
+Mehods for GoogleMap location update and finished.
+- ```GMSMapViewDelegate``` GoogleMap delegate should be required.
+```
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
+{
+    double latitude = mapView.camera.target.latitude;
+    double longitude = mapView.camera.target.longitude;
+    
+    NSLog(@"LAT:%f LONG:%f",latitude,longitude);
+    
+//    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(latitude, longitude);
+}
+
+- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position
+{
+    double latitude = mapView.camera.target.latitude;
+    double longitude = mapView.camera.target.longitude;
+    
+    [self CallLocationGetAddress:latitude Long:longitude];
+    NSLog(@"Complited LAT:%f LONG:%f",latitude,longitude);
+}
+```
