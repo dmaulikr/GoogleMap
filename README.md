@@ -48,3 +48,17 @@ Mehods for GoogleMap location update and finished.
     NSLog(@"Complited LAT:%f LONG:%f",latitude,longitude);
 }
 ```
+
+# GoogleMap URL
+- Send Latitude and Longitude to get full address of location.
+```
+[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&key=%@",Lat,Long,GOOGLE_API_KEY]
+```
+- GoogleMap Search API.
+```
+[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?key=%@&input=%@",GOOGLE_API_KEY,strValue]
+```
+- Send PlaceID to get location of latitude and longitude.
+```
+[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@",strPlaceID,GOOGLE_API_KEY]
+```
